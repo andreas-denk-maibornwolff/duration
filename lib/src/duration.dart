@@ -39,7 +39,7 @@ String prettyDuration(Duration duration,
     int maxUnits = 0}) {
   if (abbreviated && delimiter == null) {
     delimiter = ', ';
-    spacer = '';
+    spacer = '\u{00A0}';
   } else {
     delimiter ??= ' ';
     spacer ??= locale.defaultSpacer;
