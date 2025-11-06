@@ -37,13 +37,8 @@ String prettyDuration(Duration duration,
     String? conjunction,
     bool abbreviated = false,
     int maxUnits = 0}) {
-  if (abbreviated && delimiter == null) {
-    delimiter = ', ';
-    spacer = '\u{00A0}';
-  } else {
-    delimiter ??= ' ';
-    spacer ??= locale.defaultSpacer;
-  }
+  spacer ??= abbreviated ? locale.abbreviatedSpacer : locale.defaultSpacer;
+  delimiter ??= abbreviated ? ', ' : ' ';
 
   String sign = duration.isNegative ? '-' : '';
   duration = duration.abs();

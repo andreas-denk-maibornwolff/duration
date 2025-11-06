@@ -3,6 +3,7 @@ library duration.locale;
 import 'package:duration/duration.dart';
 
 part 'english.dart';
+part 'english_us.dart';
 part 'french.dart';
 part 'greek.dart';
 part 'hebrew.dart';
@@ -33,7 +34,9 @@ part 'vietnamese.dart';
 abstract class DurationLocale {
   const DurationLocale();
 
-  String get defaultSpacer => ' ';
+  String get defaultSpacer => '\u{00A0}';
+
+  String get abbreviatedSpacer => '\u{00A0}';
 
   /// Print [amount] years for the corresponding locale. The unit is abbreviated
   /// if [abbreviated] is set to true.
@@ -99,6 +102,9 @@ abstract class DurationLocale {
 
 /// [DurationLocale] for English language
 const EnglishDurationLocale englishLocale = EnglishDurationLocale();
+
+/// [DurationLocale] for US English language
+const EnglishUSDurationLocale englishUSLocale = EnglishUSDurationLocale();
 
 /// [DurationLocale] for French language
 const FrenchDurationLocale frenchLocale = FrenchDurationLocale();
@@ -184,6 +190,7 @@ const VietnameseDurationLocale vietnameseLocale = VietnameseDurationLocale();
 const _locales = <String, DurationLocale>{
   'el': greekLocale,
   'en': englishLocale,
+  'en_US': englishUSLocale,
   'fr': frenchLocale,
   'he': hebrewLocale,
   'pl': polishLocale,
